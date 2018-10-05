@@ -43,8 +43,9 @@ export default {
       const resJson = await res.json();
       this.products = resJson;
     },
-    getResourceUrl(filter = ''){
-      return `https://product-badging-api.azurewebsites.net/api/cloudinary-product-badging?filter=${filter}`;
+    getResourceUrl(filter=''){
+      const base = 'https://product-badging-api.azurewebsites.net/api/cloudinary-product-badging'
+      return filter === '' ? base : `${base}?filter=${filter}`;
     }
   },
   created(){
